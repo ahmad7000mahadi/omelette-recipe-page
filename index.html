@@ -8,39 +8,44 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Young+Serif&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Young+Serif&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
-    <article class="card">
-      <!-- Header -->
-      <header class="card-header">
-        <img
-          src="omelette-image.jpg"
-          alt="photo of an omelette"
-          class="card-hero-img"
-        />
-        <h1 class="card-main-title">Simple Omelette Recipe</h1>
-      </header>
-      <!-- Main -->
-      <main class="card-main">
-        <section class="card-main-intro">
+    <!-- Main -->
+    <main>
+      <article class="card">
+        <!-- Header -->
+        <header class="card-header">
+          <img
+            src="omelette-image.jpg"
+            alt="Golden cooked omelette folded with fillings"
+            class="card-hero-img"
+          />
+          <h1 class="card-main-title">Simple Omelette Recipe</h1>
+        </header>
+
+        <!-- Intro -->
+        <section class="card-main-intro" aria-label="Introduction">
           <p>
             An easy and quick dish, perfect for any meal. This classic omelette
             combines beaten eggs cooked to perfection, optionally filled with
             your choice of cheese, vegetables, or meats.
           </p>
-          <aside class="card-main-prep">
-            <h2>Preparation time</h2>
+
+          <aside class="card-main-prep" aria-label="Preparation Time">
+            <h3>Preparation time</h3>
             <ul>
-              <li><span>Total:</span> Approximately 10 minutes</li>
-              <li><span>Preparation:</span> 5 minutes</li>
-              <li><span>Cooking:</span> 5 minutes</li>
+              <li><strong>Total:</strong> Approximately 10 minutes</li>
+              <li><strong>Preparation:</strong> 5 minutes</li>
+              <li><strong>Cooking:</strong> 5 minutes</li>
             </ul>
           </aside>
         </section>
-        <section class="card-main-ingredients">
+
+        <!-- Ingredients -->
+        <section class="card-main-ingredients" aria-label="Ingredients">
           <h2>Ingredients</h2>
           <ul>
             <li>2-3 large eggs</li>
@@ -52,69 +57,59 @@
             </li>
           </ul>
         </section>
+
         <div class="divider"></div>
-        <section class="card-main-instructions">
+
+        <section class="card-main-instructions" aria-label="Cooking Instructions">
           <h2>Instructions</h2>
-          <ul>
+          <ol>
             <li>
-              <span class="number">1.</span>
-              <!-- Wrap the text in a div so it stays together -->
               <div class="instruction-text">
-                <span class="command">Beat the eggs:</span> In a bowl, beat the
-                eggs with a pinch of salt and pepper until they are well mixed.
-                You can add a tablespoon of water or milk for a fluffier
-                texture.
+                <strong>Beat the eggs:</strong> In a bowl, beat the eggs with a
+                pinch of salt and pepper until they are well mixed. You can add
+                a tablespoon of water or milk for a fluffier texture.
               </div>
             </li>
             <li>
-              <span class="number">2.</span>
-              <!-- Wrap the text in a div so it stays together -->
               <div class="instruction-text">
-                <span class="command">Heat the pan:</span> Place a non-stick
-                frying pan over medium heat and add butter or oil.
+                <strong>Heat the pan:</strong> Place a non-stick frying pan over
+                medium heat and add butter or oil.
               </div>
             </li>
             <li>
-              <span class="number">3.</span>
-              <!-- Wrap the text in a div so it stays together -->
               <div class="instruction-text">
-                <span class="command">Cook the omelette:</span> Once the butter
-                is melted and bubbling, pour in the eggs. Tilt the pan to ensure
-                the eggs evenly coat the surface.
+                <strong>Cook the omelette:</strong> Once the butter is melted
+                and bubbling, pour in the eggs. Tilt the pan to ensure the eggs
+                evenly coat the surface.
               </div>
             </li>
             <li>
-              <span class="number">4.</span>
-              <!-- Wrap the text in a div so it stays together -->
               <div class="instruction-text">
-                <span class="command">Add fillings (optional):</span> When the
-                eggs begin to set at the edges but are still slightly runny in
-                the middle, sprinkle your chosen fillings over one half of the
-                omelette.
+                <strong>Add fillings (optional):</strong> When the eggs begin to
+                set at the edges but are still slightly runny in the middle,
+                sprinkle your chosen fillings over one half of the omelette.
               </div>
             </li>
             <li>
-              <span class="number">5.</span>
-              <!-- Wrap the text in a div so it stays together -->
               <div class="instruction-text">
-                <span class="command">Fold and serve:</span> As the omelette
-                continues to cook, carefully lift one edge and fold it over the
-                fillings. Let it cook for another minute, then slide it onto a
-                plate.
+                <strong>Fold and serve:</strong> As the omelette continues to
+                cook, carefully lift one edge and fold it over the fillings. Let
+                it cook for another minute, then slide it onto a plate.
               </div>
             </li>
             <li>
-              <span class="number">6.</span>
-              <!-- Wrap the text in a div so it stays together -->
               <div class="instruction-text">
-                <span class="command">Enjoy:</span> Serve hot, with additional
-                salt and pepper if needed.
+                <strong>Enjoy:</strong> Serve hot, with additional salt and
+                pepper if needed.
               </div>
             </li>
-          </ul>
+          </ol>
         </section>
+
         <div class="divider"></div>
-        <section class="card-main-nutrition">
+
+        <!-- Nutrition Table -->
+        <section class="card-main-nutrition" aria-label="Nutrition Information">
           <h2>Nutrition</h2>
           <p>
             The table below shows nutritional values per serving without the
@@ -122,25 +117,34 @@
           </p>
 
           <table class="nutrition-table">
-            <tr>
-              <td>Calories</td>
-              <td class="value">277kcal</td>
-            </tr>
-            <tr>
-              <td>Carbs</td>
-              <td class="value">0g</td>
-            </tr>
-            <tr>
-              <td>Protein</td>
-              <td class="value">20g</td>
-            </tr>
-            <tr>
-              <td>Fat</td>
-              <td class="value">22g</td>
-            </tr>
+            <!-- Screen Reader Only Headers -->
+            <thead class="sr-only">
+              <tr>
+                <th>Nutrient</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Calories</td>
+                <td class="value">277kcal</td>
+              </tr>
+              <tr>
+                <td>Carbs</td>
+                <td class="value">0g</td>
+              </tr>
+              <tr>
+                <td>Protein</td>
+                <td class="value">20g</td>
+              </tr>
+              <tr>
+                <td>Fat</td>
+                <td class="value">22g</td>
+              </tr>
+            </tbody>
           </table>
         </section>
-      </main>
-    </article>
+      </article>
+    </main>
   </body>
 </html>

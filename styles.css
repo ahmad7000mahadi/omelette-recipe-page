@@ -13,29 +13,25 @@
   --color-white: #ffffff;
 
   /* Typography */
-  --font-main: "Young Serif", sans-serif;
+  --font-main: "Young Serif", serif;
   --font-secondary: "Outfit", sans-serif;
 
-  /* Padding */
-/* Default to Mobile First (Smaller padding) */
-  --padding-inline: 1.5rem; 
-  --padding-block: 1.5rem;
-  --padding-block-start: 2.5rem;
-  --padding-block-end: 2rem;
-
-/* On Desktop (Screens larger than 600px), increase it */
-@media (min-width: 600px) {
-  :root {
-    --padding-inline: 2.5rem; 
-    --padding-block: 2.5rem;
-  }
+  /* Spacing System (Mobile First) */
+  --space-card: 1.5rem; /* Padding inside card */
+  --space-gap: 1.5rem;  /* Gap between sections */
+  
+  /* Font Sizes */
+  --text-preset-1: 2.5rem;
+  --text-preset-2: 1.75rem;
+  --text-preset-3: 1.25rem;
+  --text-preset-4: 1rem;
 }
 
-  /* Font Size */
-  --text-preset-1: 2.5rem; /* 40px */
-  --text-preset-2: 1.75rem; /* 28px */
-  --text-preset-3: 1.25rem; /* 20px */
-  --text-preset-4: 1rem; /* 16px */
+/* Desktop Overrides */
+@media (min-width: 600px) {
+  :root {
+    --space-card: 2.5rem; /* Larger padding on desktop */
+  }
 }
 
 /* Minimal Reset */
@@ -52,205 +48,189 @@ img {
   max-width: 100%;
 }
 
+/* Accessibility Utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* ------------------- */
 /* 2. BODY LAYOUT      */
 /* ------------------- */
-
 body {
   background-color: var(--color-stone-100);
-  font-family: var(--font-main);
+  font-family: var(--font-secondary); /* Default to Outfit */
   font-size: var(--text-preset-4);
   color: var(--color-stone-600);
+  line-height: 1.5;
 
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  
+  /* Body padding to prevent card touching edges on mobile */
+  padding-block: 3rem;
+  padding-inline: 1rem; 
+}
 
-  padding-block: var(--padding-block);
-  padding-inline: var(--padding-inline);
+/* 3. MAIN LAYOUT (New) */
+/* This ensures the main wrapper passes the centering down */
+main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 /* ------------------- */
-/* 3. CARD LAYOUT      */
+/* 4. CARD COMPONENT   */
 /* ------------------- */
 .card {
   background-color: var(--color-white);
-  width: min(100%, 49rem);
-  padding: 2.5rem;
+  /* Fluid Width: Full width on mobile, max 46rem on desktop */
+  width: min(100%, 46rem); 
+  
+  /* Centering Fix: Ensures card centers itself inside main */
+  margin-inline: auto;
+
   border-radius: 1.5rem;
+  padding: var(--space-card); /* Uses the responsive variable */
 
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
+  gap: var(--space-gap);
 }
 
-/* ------------------- */
-/* 4. CARD HEADER LAYOUT */
-/* ------------------- */
-
-.card-header img {
-  width: min(100%, 49rem);
-  padding-block-end: var(--padding-block-end);
+/* Image */
+.card-hero-img {
+  width: 100%;
   border-radius: 0.75rem;
+  /* On mobile, set to 0 radius if touching edges, 
+     but keeping it rounded inside the card is safe */
 }
 
-.card-header h1 {
-  font-size: clamp(var(--text-preset-2), 5vw, var(--text-preset-1));
+/* Titles */
+h1, h2, h3 {
+  font-family: var(--font-main); /* Young Serif */
+  color: var(--color-brown-800);
+}
+
+.card-main-title {
   color: var(--color-stone-900);
-  font-family: var(--font-main);
+  font-size: clamp(var(--text-preset-2), 5vw, var(--text-preset-1));
+  margin-top: 1rem;
+}
+
+h2 {
+  font-size: clamp(var(--text-preset-3), 5vw, var(--text-preset-2));
+  margin-bottom: 1rem;
+}
+
+h3 {
+  color: var(--color-rose-800);
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-secondary); /* Prep time header uses Outfit */
 }
 
 /* ------------------- */
-/* 5. CARD MAIN LAYOUT */
+/* 5. PREP TIME        */
 /* ------------------- */
-.card-main {
-  width: min(100%, 46rem);
-  display: flex;
-  flex-direction: column;
-  /* align-items: center; */
-}
-
-.card-main-intro p {
-  color: var(--color-stone-600);
-  font-size: var(--text-preset-4);
-  padding-block-end: var(--padding-block-end);
-}
-
 .card-main-prep {
-  font-family: var(--font-secondary);
   background-color: var(--color-rose-50);
   padding: 1.5rem;
-  width: min(100%, 49rem);
   border-radius: 1rem;
-}
-
-.card-main-prep h2 {
-  font-family: var(--font-secondary);
-  color: var(--color-rose-800);
-  font-size: clamp(1rem, 5vw, 1.25rem);
-  width: min(100%, 38rem);
-  padding-block-end: 1rem;
+  margin-top: 1.5rem;
 }
 
 .card-main-prep ul {
-  padding-inline: var(--padding-inline);
-}
-.card-main-prep ul li {
-  padding-inline: 1rem;
-  padding-block-end: 0.5rem;
+  padding-left: 1.5rem;
 }
 
-.card-main-prep ul li span {
-  color: var(--color-stone-600);
-  font-weight: bold;
-}
-
-.card-main-ingredients {
-  width: min(100%, 49rem);
-  padding-block-start: var(--padding-block);
-}
-
-.card-main-ingredients h2 {
-  font-family: var(--font-main);
-  font-size: clamp(var(--text-preset-3), 5vw, var(--text-preset-2));
-  color: var(--color-brown-800);
-  padding-block-end: var(--padding-block-end);
-}
-
-.card-main-ingredients ul {
-  padding-inline: var(--padding-inline);
-}
-
-.card-main-ingredients ul li {
-  font-family: var(--font-secondary);
-  padding-inline: 1rem;
-  padding-block-end: 0.5rem;
-}
-
-.divider {
-  width: min(100%, 49rem);
-  height: 1px;
-  background-color: var(--color-stone-150);
-  margin-block: 2rem;
-}
-
-.card-main-instructions h2 {
-  font-size: clamp(var(--text-preset-3), 5vw, var(--text-preset-2));
-  padding-block-end: var(--padding-block-end);
-}
-
-.card-main-instructions ul {
-  list-style-type: none;
-}
-
-.card-main-instructions ul li {
-  /* Align number and text side-by-side */
-  display: flex;
-
-  /* Creates the gap between "1." and the text */
-  gap: 1rem;
-
-  font-family: var(--font-secondary);
-  line-height: 1.75;
+.card-main-prep li {
+  padding-left: 1rem;
   margin-bottom: 0.5rem;
 }
+.card-main-prep li::marker {
+    color: var(--color-rose-800); /* Custom bullet color */
+}
 
-.number {
+/* ------------------- */
+/* 6. LISTS (Ingredients) */
+/* ------------------- */
+.card-main-ingredients ul {
+  padding-left: 1.5rem;
+}
+
+.card-main-ingredients li {
+  padding-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+.card-main-ingredients li::marker {
+    color: var(--color-brown-800);
+}
+
+/* ------------------- */
+/* 7. INSTRUCTIONS (OL) */
+/* ------------------- */
+.card-main-instructions ol {
+  counter-reset: steps; /* Prepare custom counter if needed */
+  padding-left: 1.5rem;
+}
+
+.card-main-instructions li {
+  padding-left: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Styling the Numbers (1., 2., 3.) */
+.card-main-instructions li::marker {
   color: var(--color-brown-800);
   font-weight: bold;
-  /* Prevent the number from getting squashed */
-  flex-shrink: 0;
+  font-family: var(--font-main); /* Optional: Use Young Serif for numbers */
 }
 
-.command {
-  font-weight: bold;
+/* Divider */
+.divider {
+  height: 1px;
+  background-color: var(--color-stone-150);
+  width: 100%;
+  margin-block: 0.5rem;
 }
 
-/* Nutrition Section Container */
-.card-main-nutrition {
-  width: min(100%, 46rem);
-  /* Add padding if needed based on your layout */
-}
-
-.card-main-nutrition h2 {
-  font-family: var(--font-main);
-  color: var(--color-brown-800);
-  font-size: clamp(var(--text-preset-3), 5vw, var(--text-preset-2));
-  margin-bottom: 1.5rem;
-}
-
+/* ------------------- */
+/* 8. NUTRITION TABLE  */
+/* ------------------- */
 .card-main-nutrition p {
-  font-family: var(--font-secondary);
-  color: var(--color-stone-600);
   margin-bottom: 1.5rem;
 }
 
-/* Table Styles */
 .nutrition-table {
   width: 100%;
-  border-collapse: collapse; /* Removes the double-border gaps */
-  font-family: var(--font-secondary);
+  border-collapse: collapse;
 }
 
 .nutrition-table tr {
-  /* Adds the line between rows */
   border-bottom: 1px solid var(--color-stone-150);
 }
 
-/* Remove the border from the very last row */
 .nutrition-table tr:last-child {
   border-bottom: none;
 }
 
 .nutrition-table td {
-  padding-block: 0.75rem; /* Adds space above/below text */
-  padding-inline-start: 2rem; /* Indent slightly */
-  width: 50%; /* Splits the columns evenly */
+  padding-block: 0.75rem;
+  padding-left: 2rem;
+  width: 50%;
 }
 
-/* Specific Style for the Numbers (Right Column) */
 .value {
   color: var(--color-brown-800);
   font-weight: bold;
