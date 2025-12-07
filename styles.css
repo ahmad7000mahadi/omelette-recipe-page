@@ -225,6 +225,10 @@ h3 {
   border-bottom: none;
 }
 
+.nutrition-table tr:last-child td {
+  padding-bottom: 0;
+}
+
 .nutrition-table td {
   padding-block: 0.75rem;
   padding-left: 2rem;
