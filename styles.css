@@ -1,0 +1,257 @@
+/* ------------------- */
+/* 1. SETUP & VARIABLES */
+/* ------------------- */
+:root {
+  /* Colors */
+  --color-rose-800: #7a284e;
+  --color-rose-50: #fff7fb;
+  --color-stone-900: #312e2c;
+  --color-stone-600: #5f564d;
+  --color-stone-150: #e3ddd7;
+  --color-stone-100: #f3e5d7;
+  --color-brown-800: #854632;
+  --color-white: #ffffff;
+
+  /* Typography */
+  --font-main: "Young Serif", sans-serif;
+  --font-secondary: "Outfit", sans-serif;
+
+  /* Padding */
+/* Default to Mobile First (Smaller padding) */
+  --padding-inline: 1.5rem; 
+  --padding-block: 1.5rem;
+  --padding-block-start: 2.5rem;
+  --padding-block-end: 2rem;
+
+/* On Desktop (Screens larger than 600px), increase it */
+@media (min-width: 600px) {
+  :root {
+    --padding-inline: 2.5rem; 
+    --padding-block: 2.5rem;
+  }
+}
+
+  /* Font Size */
+  --text-preset-1: 2.5rem; /* 40px */
+  --text-preset-2: 1.75rem; /* 28px */
+  --text-preset-3: 1.25rem; /* 20px */
+  --text-preset-4: 1rem; /* 16px */
+}
+
+/* Minimal Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ------------------- */
+/* 2. BODY LAYOUT      */
+/* ------------------- */
+
+body {
+  background-color: var(--color-stone-100);
+  font-family: var(--font-main);
+  font-size: var(--text-preset-4);
+  color: var(--color-stone-600);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+  padding-block: var(--padding-block);
+  padding-inline: var(--padding-inline);
+}
+
+/* ------------------- */
+/* 3. CARD LAYOUT      */
+/* ------------------- */
+.card {
+  background-color: var(--color-white);
+  width: min(100%, 49rem);
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* ------------------- */
+/* 4. CARD HEADER LAYOUT */
+/* ------------------- */
+
+.card-header img {
+  width: min(100%, 49rem);
+  padding-block-end: var(--padding-block-end);
+  border-radius: 0.75rem;
+}
+
+.card-header h1 {
+  font-size: clamp(var(--text-preset-2), 5vw, var(--text-preset-1));
+  color: var(--color-stone-900);
+  font-family: var(--font-main);
+}
+
+/* ------------------- */
+/* 5. CARD MAIN LAYOUT */
+/* ------------------- */
+.card-main {
+  width: min(100%, 46rem);
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+
+.card-main-intro p {
+  color: var(--color-stone-600);
+  font-size: var(--text-preset-4);
+  padding-block-end: var(--padding-block-end);
+}
+
+.card-main-prep {
+  font-family: var(--font-secondary);
+  background-color: var(--color-rose-50);
+  padding: 1.5rem;
+  width: min(100%, 49rem);
+  border-radius: 1rem;
+}
+
+.card-main-prep h2 {
+  font-family: var(--font-secondary);
+  color: var(--color-rose-800);
+  font-size: clamp(1rem, 5vw, 1.25rem);
+  width: min(100%, 38rem);
+  padding-block-end: 1rem;
+}
+
+.card-main-prep ul {
+  padding-inline: var(--padding-inline);
+}
+.card-main-prep ul li {
+  padding-inline: 1rem;
+  padding-block-end: 0.5rem;
+}
+
+.card-main-prep ul li span {
+  color: var(--color-stone-600);
+  font-weight: bold;
+}
+
+.card-main-ingredients {
+  width: min(100%, 49rem);
+  padding-block-start: var(--padding-block);
+}
+
+.card-main-ingredients h2 {
+  font-family: var(--font-main);
+  font-size: clamp(var(--text-preset-3), 5vw, var(--text-preset-2));
+  color: var(--color-brown-800);
+  padding-block-end: var(--padding-block-end);
+}
+
+.card-main-ingredients ul {
+  padding-inline: var(--padding-inline);
+}
+
+.card-main-ingredients ul li {
+  font-family: var(--font-secondary);
+  padding-inline: 1rem;
+  padding-block-end: 0.5rem;
+}
+
+.divider {
+  width: min(100%, 49rem);
+  height: 1px;
+  background-color: var(--color-stone-150);
+  margin-block: 2rem;
+}
+
+.card-main-instructions h2 {
+  font-size: clamp(var(--text-preset-3), 5vw, var(--text-preset-2));
+  padding-block-end: var(--padding-block-end);
+}
+
+.card-main-instructions ul {
+  list-style-type: none;
+}
+
+.card-main-instructions ul li {
+  /* Align number and text side-by-side */
+  display: flex;
+
+  /* Creates the gap between "1." and the text */
+  gap: 1rem;
+
+  font-family: var(--font-secondary);
+  line-height: 1.75;
+  margin-bottom: 0.5rem;
+}
+
+.number {
+  color: var(--color-brown-800);
+  font-weight: bold;
+  /* Prevent the number from getting squashed */
+  flex-shrink: 0;
+}
+
+.command {
+  font-weight: bold;
+}
+
+/* Nutrition Section Container */
+.card-main-nutrition {
+  width: min(100%, 46rem);
+  /* Add padding if needed based on your layout */
+}
+
+.card-main-nutrition h2 {
+  font-family: var(--font-main);
+  color: var(--color-brown-800);
+  font-size: clamp(var(--text-preset-3), 5vw, var(--text-preset-2));
+  margin-bottom: 1.5rem;
+}
+
+.card-main-nutrition p {
+  font-family: var(--font-secondary);
+  color: var(--color-stone-600);
+  margin-bottom: 1.5rem;
+}
+
+/* Table Styles */
+.nutrition-table {
+  width: 100%;
+  border-collapse: collapse; /* Removes the double-border gaps */
+  font-family: var(--font-secondary);
+}
+
+.nutrition-table tr {
+  /* Adds the line between rows */
+  border-bottom: 1px solid var(--color-stone-150);
+}
+
+/* Remove the border from the very last row */
+.nutrition-table tr:last-child {
+  border-bottom: none;
+}
+
+.nutrition-table td {
+  padding-block: 0.75rem; /* Adds space above/below text */
+  padding-inline-start: 2rem; /* Indent slightly */
+  width: 50%; /* Splits the columns evenly */
+}
+
+/* Specific Style for the Numbers (Right Column) */
+.value {
+  color: var(--color-brown-800);
+  font-weight: bold;
+}
