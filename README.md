@@ -31,8 +31,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add your GitHub Repo URL here]
-- Live Site URL: [Add your Live Site URL here]
+- Solution URL: https://github.com/ahmad7000mahadi/omelette-recipe-page
+- Live Site URL: https://ahmad7000mahadi.github.io/omelette-recipe-page/
 
 ## My Process
 
